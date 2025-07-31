@@ -1,61 +1,77 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Infornet24H JWT
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema para **assistência veicular 24 horas**, permitindo **busca de prestadores de serviço** que forneçam suporte para veículos em situações emergenciais.  
+O projeto utiliza **Laravel 12**, **PHP 8.4**, **MySQL 8** e **Docker (Laravel Sail)** para simplificar o ambiente de desenvolvimento.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Tecnologias Utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Laravel 12](https://laravel.com)
+- [PHP 8.4](https://www.php.net)
+- [MySQL 8](https://www.mysql.com)
+- [Docker + Laravel Sail](https://laravel.com/docs/sail)
+- [JWT Auth](https://jwt.io) para autenticação
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📋 Pré-requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Certifique-se de ter instalado em sua máquina:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [Composer](https://getcomposer.org/)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## ⚡ Passos para rodar o projeto localmente
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. **Clonar o repositório**
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
 
-### Premium Partners
+2. **Entrar na pasta do projeto**
+   ```bash
+   cd infornet24h-jwt
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+3. **Copiar o arquivo .env.example para .env**
+   ```bash
+   cp .env.example .env
 
-## Contributing
+4. **Instalar dependências do PHP via Composer**
+   ```bash
+   composer install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. **Subir o ambiente Docker com Laravel Sail**
+   ```bash
+   ./vendor/bin/sail up -d
 
-## Code of Conduct
+6. **Gerar a chave da aplicação**
+   ```bash
+   ./vendor/bin/sail artisan key:generate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+7. **Configurar variáveis de banco de dados no .env**
+   ```bash
+   DB_HOST=mysql
+   DB_PASSWORD=password
 
-## Security Vulnerabilities
+8. **Executar migrations com seeders**
+   ```bash
+   ./vendor/bin/sail artisan migrate:fresh --seed
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+9. **Gerar a chave JWT para autenticação**
+   ```bash
+   ./vendor/bin/sail artisan jwt:secret
 
-## License
+10. **Configurar credenciais da API da Infornet**
+    ```bash
+    Adicione ao .env:
+    USERINFORNET=seu_usuario
+    PASSWORDINFORNET=sua_senha
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📡 Endpoints da API
+
+- **Autenticação JWT**
+- **Cadastro e consulta de prestadores**
+- **Integração com API da Infornet**
