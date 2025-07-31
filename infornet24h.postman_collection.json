@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "7767c800-cf0c-4ecd-a439-a0665e01a265",
+		"name": "infornet24h",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4220037"
+	},
+	"item": [
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Registro de usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"oto\",\n  \"email\": \"oto@example.com\",\n  \"password\": \"secret123\",\n  \"password_confirmation\": \"secret123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/cadastrar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"oto@example.com\",\n  \"password\": \"secret123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Serviço",
+			"item": [
+				{
+					"name": "Criar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"serviço 3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/servicos/criar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"servicos",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assistance_id\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/servicos/buscar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"servicos",
+								"buscar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/servicos/listar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"servicos",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assistance_id\":3,\n    \"name\":\"teste\",\n    \"status\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/servicos/atualizar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"servicos",
+								"atualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assistance_id\":4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/servicos/excluir",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"servicos",
+								"excluir"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prestador",
+			"item": [
+				{
+					"name": "Criar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"João Silva\",\n    \"street\":\"Rua um\",\n    \"neighborhood\":\"Centro\",\n    \"number\":1,\n    \"latitude\": 1,\n    \"longitude\":2,\n    \"city\":\"Cidade\",\n    \"uf\":\"XY\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/prestadores/criar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"prestadores",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purveyor_id\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/prestadores/buscar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"prestadores",
+								"buscar"
+							]
+						},
+						"description": "## API Endpoint: Search Providers\n\n### Method\n\n`GET`\n\n### URL\n\n`http://localhost:8000/api/prestadores/buscar`\n\n### Description\n\nThis endpoint is used to search for providers (prestadores) in the system. It allows users to retrieve a list of available providers based on specific criteria defined in the request parameters.\n\n### Request Parameters\n\nThis endpoint does not require any specific query parameters in the request. However, it may support optional parameters that can be used to filter or refine the search results (not specified in the current request).\n\n### Expected Response\n\nUpon a successful request, the server responds with a status code of `200`, indicating that the request was processed successfully. The response content type is `text/html`, and the body of the response is currently empty. The absence of content may suggest that either no providers were found or that the response format is not returning data in the expected manner.\n\n### Notes\n\n- Ensure that the server is running and accessible at the specified URL.\n    \n- If additional filtering options are required, please refer to the API documentation for possible query parameters that can be included in the request."
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purveyor_id\":1,\n    \"uf\":\"mg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/prestadores/atualizar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"prestadores",
+								"atualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purveyor_id\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/prestadores/excluir",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"prestadores",
+								"excluir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purveyor_id\":3\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/prestadores/filtrar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"prestadores",
+								"filtrar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Geolocalização",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"rua são joão, katia\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/geolocalizacao",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"geolocalizacao"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost",
+			"type": "default"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzOTYzNTg3LCJleHAiOjE3NTM5NjcxODcsIm5iZiI6MTc1Mzk2MzU4NywianRpIjoiYm1vbmIxYXRSNk1SZ014TSIsInN1YiI6IjIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.L52GUFVnfoq8RNlStScltf-0T8fhRQnpGuYP690DYN8",
+			"type": "default"
+		}
+	]
+}
