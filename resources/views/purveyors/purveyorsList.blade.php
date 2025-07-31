@@ -107,11 +107,6 @@
             </tbody>
         </table>
     </div>
-
-    {{-- Paginas --}}
-    <div class="mt-3">
-        {{ $prestadores->appends(request()->query())->links() }}
-    </div>
 </div>
 @endsection
 
