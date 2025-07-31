@@ -72,7 +72,7 @@ $(document).on("submit", "#login-form", function(e) {
     let password = $("#password").val();
 
     $.ajax({
-        url: "http://localhost:8000/api/login",
+        url: "http://localhost/api/login",
         method: "POST",
         data: { email, password },
         success: function(data) {

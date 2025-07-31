@@ -126,7 +126,7 @@
         $("#logout-btn").on("click", function () {
             let token = localStorage.getItem('jwt_token');
             $.ajax({
-                url: "http://localhost:8000/api/logout",
+                url: "http://localhost/api/logout",
                 method: "POST",
                 headers: {
                     "Authorization": "Bearer " + token
@@ -168,7 +168,7 @@
             let token = localStorage.getItem('jwt_token');
 
             $.ajax({
-                url: "http://localhost:8000/api/prestadores/filtrar",
+                url: "http://localhost/api/prestadores/filtrar",
                 method: "GET",
                 data: finalData,
                 headers: {
